@@ -26,13 +26,21 @@ Explain in detail the workings of a dynamic array:
 A dynamic array shrinks or grows vs being a fixed length
 
 - What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
-  O(n), O(1), O(1)
+
+  O(1), O(n), O(1)
+
 - What is the worse case scenario if you try to extend the storage size of a dynamic array?
+
   O(n)
-  Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+
+- Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+
   A blockchain is structured by consecutive blocks, each being generated from the one before it but using the same hash.
-  Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
-  A blockchain is created with it's own proof. The proof of the previous block must calculate to the next based on a hash function. An attack is possible if a computer can calculate the next hashes quickly enough to overwrite the ones that've already been generated, thus changing the history of coins mined and stealing them from the actual miners.
+
+- Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+
+  A blockchain is created with it's own proof. The proof of the previous block must calculate to the next based on a hash function. An attack is possible
+  if a computer can calculate the next hashes quickly enough to overwrite the ones that've already been generated, thus changing the history of coins mined and stealing them from the actual miners.
 
 ## Project Set Up
 
