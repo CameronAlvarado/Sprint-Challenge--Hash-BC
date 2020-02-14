@@ -11,14 +11,18 @@ def get_indices_of_item_weights(weights, length, limit):
     # find two items who's weights equal the limit
 
     # loop thtought the array of items
-    # for w in weights:
-    #     i = weights.index(w)
-    #     current = weights[i]
-    #     if weights[i+1] is not False:
-    #         next_i = weights[i+1]
-    #         hash_table_insert(ht, current, next_i)
-    #     else:
-    #         hash_table_insert(ht, current, None)
+    for i in range(length):
+        dif = limit - weights[i]
+        if hash_table_retrieve(ht, dif) is not None:
+            x = i
+            y = hash_table_retrieve(ht, dif)
+            if x > y:
+                return (x, y)
+            else:
+                return (y, x)
+        hash_table_insert(ht, weights[i], i)
+
+    return None
 
     for w in weights:
         i = weights.index(w)

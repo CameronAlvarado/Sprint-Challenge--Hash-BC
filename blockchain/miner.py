@@ -53,7 +53,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         node = sys.argv[1]
     else:
-        node = "https://lambda-coin.herokuapp.com/api"
+        node = "https://lambda-coin-test-1.herokuapp.com/api"
 
     coins_mined = 0
 
@@ -70,13 +70,6 @@ if __name__ == '__main__':
     while True:
         # Get the last proof from the server
         r = requests.get(url=node + "/last_proof")
-        data = r.json()
-        new_proof = proof_of_work(data.get('proof'))
-
-        post_data = {"proof": new_proof,
-                     "id": id}
-
-        r = requests.post(url=node + "/mine", json=post_data)
         try:
             data = r.json()
         except ValueError:
@@ -84,6 +77,13 @@ if __name__ == '__main__':
             print("Response returned:")
             print(r)
             break
+        new_proof = proof_of_work(data.get('proof'))
+
+        post_data = {"proof": new_proof,
+                     "id": id}
+
+        r = requests.post(url=node + "/mine", json=post_data)
+        data = r.json()
         if data.get('message') == 'New Block Forged':
             coins_mined += 1
             print("Total coins mined: " + str(coins_mined))
