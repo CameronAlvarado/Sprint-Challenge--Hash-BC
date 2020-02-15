@@ -11,20 +11,20 @@ def get_indices_of_item_weights(weights, length, limit):
     # find two items who's weights equal the limit
 
     # loop thtought the array of items
-    for i in range(length):
-        dif = limit - weights[i]
+    for index in range(length):
+        dif = limit - weights[index]
         if hash_table_retrieve(ht, dif) is not None:
-            x = i
+            x = index
             y = hash_table_retrieve(ht, dif)
             if x > y:
                 return (x, y)
             else:
                 return (y, x)
-        hash_table_insert(ht, weights[i], i)
+        hash_table_insert(ht, weights[index], index)
 
     return None
 
-    # for w in weights:
+    # for w in range(length):
     #     i = weights.index(w)
     #     current = weights[i]
     #     if weights[i+1] is not None:
